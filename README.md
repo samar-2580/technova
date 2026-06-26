@@ -35,21 +35,6 @@ https://samar-2580.github.io/responsive-frontend/
 - JavaScript (ES6)
 
 
-## 📁 Project Structure
-
-responsive-frontend/
-│
-├── images/
-│   ├── hero.jpg
-│   ├── about.jpg
-│   └── ss.png
-│
-├── index.html
-├── style.css
-├── script.js
-└── README.md
-
-
 ## ▶️ Getting Started
 
 ### Clone the repository
