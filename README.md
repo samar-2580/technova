@@ -1,6 +1,6 @@
 # 🌐 Responsive Frontend Landing Page
 
-A modern and responsive landing page built using HTML5, CSS3, and Vanilla JavaScript. This project was developed as part of a frontend virtual internship to demonstrate responsive web design, clean UI development, and basic JavaScript interactivity.
+A modern and responsive landing page built using HTML5, CSS3, and Vanilla JavaScript. This project was developed as part of a fullstack virtual internship to demonstrate responsive web design, clean UI development, and basic JavaScript interactivity.
 
 
 ## 🚀 Live Demo
