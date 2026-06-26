@@ -6,7 +6,7 @@ A modern and responsive landing page built using HTML5, CSS3, and Vanilla JavaSc
 ## 🚀 Live Demo
 
 🔗 Live Website:  
-https://samar-2580.github.io/responsive-frontend/
+https://samar-2580.github.io/technova/
 
 
 ## 📸 Project Preview
@@ -39,11 +39,11 @@ https://samar-2580.github.io/responsive-frontend/
 
 ### Clone the repository
 
-bash git clone https://github.com/samar-2580/responsive-frontend.git 
+bash git clone git clone https://github.com/samar-2580/technova.git
 
 ### Open the project
 
-bash cd responsive-frontend 
+bash cd technova
 
 Open index.html directly in your browser, or use the Live Server extension in Visual Studio Code for the best experience.
 
