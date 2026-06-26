@@ -1,0 +1,452 @@
+/* ===============================
+   GOOGLE FONT & RESET
+================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: #f5f7fb;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* ===============================
+   REUSABLE STYLES
+================================= */
+
+section {
+    padding: 80px 10%;
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title h2 {
+    font-size: 2.2rem;
+    color: #1f2937;
+    margin-bottom: 12px;
+}
+
+.section-title p {
+    color: #666;
+    font-size: 1rem;
+}
+
+/* ===============================
+   BUTTONS
+================================= */
+
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    padding: 14px 28px;
+    border-radius: 8px;
+    transition: 0.3s ease;
+    font-weight: 600;
+}
+
+.primary-btn {
+    background: #2563eb;
+    color: white;
+}
+
+.primary-btn:hover {
+    background: #1d4ed8;
+}
+
+.secondary-btn {
+    border: 2px solid #2563eb;
+    color: #2563eb;
+    margin-left: 15px;
+}
+
+.secondary-btn:hover {
+    background: #2563eb;
+    color: white;
+}
+
+/* ===============================
+   NAVBAR
+================================= */
+
+header {
+    background: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+.navbar {
+    width: 90%;
+    margin: auto;
+    padding: 18px 0;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #2563eb;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 35px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: #2563eb;
+}
+
+.menu-btn {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+/* ===============================
+   HERO SECTION
+================================= */
+
+.hero {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 60px;
+
+    min-height: 90vh;
+
+    background: linear-gradient(
+        to right,
+        #f8fbff,
+        #eef5ff
+    );
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.hero-content h1 {
+
+    font-size: 3.2rem;
+
+    color: #1f2937;
+
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+
+    font-size: 1.1rem;
+
+    color: #666;
+
+    margin-bottom: 35px;
+}
+
+.hero-buttons {
+
+    display: flex;
+
+    align-items: center;
+}
+
+.hero-image {
+
+    flex: 1;
+}
+
+.hero-image img {
+
+    border-radius: 20px;
+
+    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+}
+/* ===============================
+   ABOUT SECTION
+================================= */
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+}
+
+.about-image,
+.about-text {
+    flex: 1;
+}
+
+.about-image img {
+    border-radius: 18px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.about-text h2 {
+    font-size: 2.2rem;
+    color: #1f2937;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    color: #555;
+    margin-bottom: 18px;
+}
+
+/* ===============================
+   SERVICES SECTION
+================================= */
+
+.services {
+    background: white;
+}
+
+.service-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.service-card {
+    background: #f8fbff;
+    padding: 35px 25px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transition: 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+}
+
+.service-card h3 {
+    color: #2563eb;
+    margin-bottom: 15px;
+}
+
+.service-card p {
+    color: #666;
+}
+
+/* ===============================
+   FEATURES SECTION
+================================= */
+
+.features {
+    background: #eef5ff;
+}
+
+.feature-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.feature-box {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.feature-box:hover {
+    transform: translateY(-8px);
+}
+
+.feature-box h3 {
+    color: #2563eb;
+    margin-bottom: 15px;
+}
+
+.feature-box p {
+    color: #666;
+}
+/* ===============================
+   CONTACT SECTION
+================================= */
+
+.contact {
+    background: #ffffff;
+}
+
+.contact form {
+    max-width: 700px;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact input,
+.contact textarea {
+    width: 100%;
+    padding: 15px;
+    font-size: 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    outline: none;
+    transition: 0.3s;
+    font-family: "Poppins", sans-serif;
+}
+
+.contact input:focus,
+.contact textarea:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 8px rgba(37, 99, 235, 0.2);
+}
+
+.contact textarea {
+    resize: vertical;
+}
+
+.contact button {
+    width: fit-content;
+    cursor: pointer;
+}
+
+#form-message {
+    margin-top: 20px;
+    text-align: center;
+    color: #16a34a;
+    font-weight: 600;
+}
+
+/* ===============================
+   FOOTER
+================================= */
+
+footer {
+    background: #1f2937;
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.footer-content h2 {
+    margin-bottom: 12px;
+}
+
+.footer-content p {
+    color: #d1d5db;
+    margin-bottom: 8px;
+}
+
+/* ===============================
+   RESPONSIVE DESIGN
+================================= */
+
+@media (max-width: 992px) {
+
+    .hero,
+    .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .service-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .feature-container {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+
+    section {
+        padding: 60px 8%;
+    }
+
+    .navbar {
+        width: 92%;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .hero {
+        min-height: auto;
+        padding-top: 60px;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .secondary-btn {
+        margin-left: 0;
+    }
+
+    .service-container {
+        grid-template-columns: 1fr;
+    }
+
+    .feature-container {
+        grid-template-columns: 1fr;
+    }
+}
+.nav-links.show {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 75px;
+    right: 5%;
+    background: white;
+    width: 220px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
