@@ -76,45 +76,45 @@ export const SubscriptionModal: React.FC<SubscriptionModalProps> = ({ isOpen, on
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-zinc-950/80 backdrop-blur-md">
         <motion.div
           initial={{ opacity: 0, scale: 0.9, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.9, y: 20 }}
           transition={{ type: 'spring', stiffness: 350, damping: 25 }}
-          className="glass-panel w-full max-w-md rounded-3xl p-6 border border-slate-700/80 shadow-2xl relative"
+          className="glass-panel w-full max-w-md rounded-2xl p-6 border border-zinc-800/80 shadow-2xl relative"
         >
-          <div className="flex items-center justify-between pb-4 mb-4 border-b border-slate-800">
-            <h3 className="text-base font-extrabold text-slate-100 dark:text-slate-100 light:text-slate-900 tracking-tight">
+          <div className="flex items-center justify-between pb-4 mb-4 border-b border-zinc-800/80">
+            <h3 className="text-sm font-mono font-bold text-zinc-100 uppercase tracking-wider">
               {initialSub ? 'Edit Subscription' : 'Add Recurring Subscription'}
             </h3>
             <button
               onClick={onClose}
-              className="p-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-slate-200 transition-colors"
+              className="p-1.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-400 hover:text-zinc-200 transition-colors"
             >
               <X className="w-4 h-4" />
             </button>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-4 text-xs">
+          <form onSubmit={handleSubmit} className="space-y-3.5 text-xs font-mono">
             
             {/* Service Name */}
             <div>
-              <label className="block font-bold text-slate-300 mb-1">Service / App Name</label>
+              <label className="block font-bold text-zinc-300 mb-1">Service / App Name</label>
               <input
                 type="text"
                 required
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="e.g., GitHub Copilot, Netflix, Figma"
-                className="w-full bg-slate-900/80 text-slate-100 border border-slate-700 rounded-xl px-3 py-2.5 focus:outline-none focus:ring-2 focus:ring-purple-500 font-medium"
+                className="w-full bg-zinc-900/90 text-zinc-100 border border-zinc-800 rounded-lg px-3 py-2 text-xs font-mono focus:outline-none focus:border-zinc-600"
               />
             </div>
 
             {/* Amount & Cadence Grid */}
             <div className="grid grid-cols-2 gap-3">
               <div>
-                <label className="block font-bold text-slate-300 mb-1">Cost ($)</label>
+                <label className="block font-bold text-zinc-300 mb-1">Cost ($)</label>
                 <input
                   type="number"
                   step="0.01"
@@ -122,19 +122,19 @@ export const SubscriptionModal: React.FC<SubscriptionModalProps> = ({ isOpen, on
                   value={amount}
                   onChange={(e) => setAmount(e.target.value)}
                   placeholder="19.99"
-                  className="w-full bg-slate-900/80 text-slate-100 border border-slate-700 rounded-xl px-3 py-2.5 focus:outline-none focus:ring-2 focus:ring-purple-500 font-medium"
+                  className="w-full bg-zinc-900/90 text-zinc-100 border border-zinc-800 rounded-lg px-3 py-2 text-xs font-mono font-bold tracking-tight tabular-nums focus:outline-none focus:border-zinc-600"
                 />
               </div>
 
               <div>
-                <label className="block font-bold text-slate-300 mb-1">Billing Cadence</label>
+                <label className="block font-bold text-zinc-300 mb-1">Billing Cadence</label>
                 <select
                   value={billingCycle}
                   onChange={(e) => setBillingCycle(e.target.value as BillingCycle)}
-                  className="w-full bg-slate-900/80 text-slate-100 border border-slate-700 rounded-xl px-3 py-2.5 focus:outline-none focus:ring-2 focus:ring-purple-500 font-medium"
+                  className="w-full bg-zinc-900/90 text-zinc-100 border border-zinc-800 rounded-lg px-3 py-2 text-xs font-mono focus:outline-none focus:border-zinc-600 cursor-pointer"
                 >
-                  <option value="monthly">Monthly</option>
-                  <option value="annual">Annual</option>
+                  <option value="monthly" className="bg-zinc-900 text-zinc-100">Monthly</option>
+                  <option value="annual" className="bg-zinc-900 text-zinc-100">Annual</option>
                 </select>
               </div>
             </div>
@@ -142,41 +142,41 @@ export const SubscriptionModal: React.FC<SubscriptionModalProps> = ({ isOpen, on
             {/* Category & Next Billing Date Grid */}
             <div className="grid grid-cols-2 gap-3">
               <div>
-                <label className="block font-bold text-slate-300 mb-1">Category</label>
+                <label className="block font-bold text-zinc-300 mb-1">Category</label>
                 <select
                   value={category}
                   onChange={(e) => setCategory(e.target.value as Category)}
-                  className="w-full bg-slate-900/80 text-slate-100 border border-slate-700 rounded-xl px-3 py-2.5 focus:outline-none focus:ring-2 focus:ring-purple-500 font-medium"
+                  className="w-full bg-zinc-900/90 text-zinc-100 border border-zinc-800 rounded-lg px-3 py-2 text-xs font-mono focus:outline-none focus:border-zinc-600 cursor-pointer"
                 >
                   {CATEGORIES.map((cat) => (
-                    <option key={cat} value={cat}>{cat}</option>
+                    <option key={cat} value={cat} className="bg-zinc-900 text-zinc-100">{cat}</option>
                   ))}
                 </select>
               </div>
 
               <div>
-                <label className="block font-bold text-slate-300 mb-1">Next Billing Date</label>
+                <label className="block font-bold text-zinc-300 mb-1">Next Billing Date</label>
                 <input
                   type="date"
                   required
                   value={nextBillingDate}
                   onChange={(e) => setNextBillingDate(e.target.value)}
-                  className="w-full bg-slate-900/80 text-slate-100 border border-slate-700 rounded-xl px-3 py-2.5 focus:outline-none focus:ring-2 focus:ring-purple-500 font-medium"
+                  className="w-full bg-zinc-900/90 text-zinc-100 border border-zinc-800 rounded-lg px-3 py-2 text-xs font-mono focus:outline-none focus:border-zinc-600"
                 />
               </div>
             </div>
 
             {/* Tag Selection */}
             <div>
-              <label className="block font-bold text-slate-300 mb-1">Value Evaluation Tag</label>
-              <div className="flex gap-2">
+              <label className="block font-bold text-zinc-300 mb-1">Value Evaluation Tag</label>
+              <div className="flex gap-2 font-mono">
                 <button
                   type="button"
                   onClick={() => setTag('keep')}
-                  className={`flex-1 py-2 rounded-xl text-xs font-extrabold border transition-all ${
+                  className={`flex-1 py-1.5 rounded-lg text-xs font-bold border transition-all ${
                     tag === 'keep'
-                      ? 'bg-emerald-600 text-white border-emerald-500 shadow'
-                      : 'bg-slate-900 text-slate-400 border-slate-700'
+                      ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40 shadow-sm'
+                      : 'bg-zinc-900 text-zinc-400 border-zinc-800'
                   }`}
                 >
                   KEEP (High Value)
@@ -184,10 +184,10 @@ export const SubscriptionModal: React.FC<SubscriptionModalProps> = ({ isOpen, on
                 <button
                   type="button"
                   onClick={() => setTag('reevaluate')}
-                  className={`flex-1 py-2 rounded-xl text-xs font-extrabold border transition-all ${
+                  className={`flex-1 py-1.5 rounded-lg text-xs font-bold border transition-all ${
                     tag === 'reevaluate'
-                      ? 'bg-amber-600 text-white border-amber-500 shadow'
-                      : 'bg-slate-900 text-slate-400 border-slate-700'
+                      ? 'bg-amber-500/20 text-amber-300 border-amber-500/40 shadow-sm'
+                      : 'bg-zinc-900 text-zinc-400 border-zinc-800'
                   }`}
                 >
                   RE-EVALUATE
@@ -197,13 +197,13 @@ export const SubscriptionModal: React.FC<SubscriptionModalProps> = ({ isOpen, on
 
             {/* Notes */}
             <div>
-              <label className="block font-bold text-slate-300 mb-1">Notes (Optional)</label>
+              <label className="block font-bold text-zinc-300 mb-1">Notes (Optional)</label>
               <input
                 type="text"
                 value={notes}
                 onChange={(e) => setNotes(e.target.value)}
                 placeholder="e.g., Shared family plan, cancel before trial"
-                className="w-full bg-slate-900/80 text-slate-100 border border-slate-700 rounded-xl px-3 py-2.5 focus:outline-none focus:ring-2 focus:ring-purple-500 font-medium"
+                className="w-full bg-zinc-900/90 text-zinc-100 border border-zinc-800 rounded-lg px-3 py-2 text-xs font-mono focus:outline-none focus:border-zinc-600"
               />
             </div>
 
@@ -211,7 +211,7 @@ export const SubscriptionModal: React.FC<SubscriptionModalProps> = ({ isOpen, on
             <div className="pt-3">
               <button
                 type="submit"
-                className="w-full py-3 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-bold text-xs shadow-lg shadow-purple-600/30 flex items-center justify-center gap-2 transition-all"
+                className="w-full py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-mono font-bold text-xs shadow-sm flex items-center justify-center gap-2 transition-all border border-emerald-500/30"
               >
                 {initialSub ? <Save className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
                 <span>{initialSub ? 'Update Subscription' : 'Save Subscription'}</span>

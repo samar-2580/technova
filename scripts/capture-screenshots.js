@@ -55,9 +55,9 @@ async function run() {
 
     // 4. Mobile Viewport
     console.log('Capturing mobile-view.png...');
-    await page.setViewportSize({ width: 390, height: 844 }); // iPhone 13 / 14 resolution
+    await page.setViewportSize({ width: 375, height: 812 }); // 375px standard mobile viewport
     await page.goto(baseUrl, { waitUntil: 'networkidle' });
-    await page.waitForTimeout(1000);
+    await page.waitForTimeout(1200);
     await page.screenshot({ path: path.join(SCREENSHOT_DIR, 'mobile-view.png') });
 
     console.log('✅ All screenshots captured successfully in docs/screenshots/!');
