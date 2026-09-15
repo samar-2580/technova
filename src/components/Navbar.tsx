@@ -12,7 +12,6 @@ import {
   CreditCard, 
   Receipt, 
   BarChart3, 
-  Database,
   Plus
 } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -37,65 +36,65 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenExpenseModal, onOpenSubMod
   const [showConfirmReset, setShowConfirmReset] = useState(false);
 
   const tabs: { id: TabType; label: string; icon: React.ReactNode }[] = [
-    { id: 'dashboard', label: 'Dashboard', icon: <LayoutDashboard className="w-4 h-4" /> },
-    { id: 'subscriptions', label: 'Subscriptions', icon: <CreditCard className="w-4 h-4" /> },
-    { id: 'expenses', label: 'Expense Feed', icon: <Receipt className="w-4 h-4" /> },
-    { id: 'analytics', label: 'Analytics', icon: <BarChart3 className="w-4 h-4" /> },
+    { id: 'dashboard', label: 'Dashboard', icon: <LayoutDashboard className="w-3.5 h-3.5" /> },
+    { id: 'subscriptions', label: 'Subscriptions', icon: <CreditCard className="w-3.5 h-3.5" /> },
+    { id: 'expenses', label: 'Expense Feed', icon: <Receipt className="w-3.5 h-3.5" /> },
+    { id: 'analytics', label: 'Analytics', icon: <BarChart3 className="w-3.5 h-3.5" /> },
   ];
 
   return (
-    <header className="sticky top-0 z-40 w-full glass-panel border-b border-slate-800/60 transition-colors">
+    <header className="sticky top-0 z-40 w-full glass-panel border-b border-zinc-800/80 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 gap-4">
+        <div className="flex items-center justify-between h-14 gap-4">
           
-          {/* Logo & Status Pill */}
+          {/* Logo & Status Badge */}
           <div className="flex items-center gap-3">
             <div className="flex items-center gap-2">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-purple-500 flex items-center justify-center shadow-lg shadow-indigo-500/30 text-white font-black text-xl">
+              <div className="w-7 h-7 rounded-lg bg-zinc-800 border border-zinc-700/60 flex items-center justify-center text-emerald-400 font-mono font-bold text-sm shadow-inner">
                 ⚡
               </div>
-              <div className="flex flex-col">
-                <span className="font-extrabold text-lg sm:text-xl tracking-tight bg-gradient-to-r from-indigo-400 via-purple-300 to-indigo-200 bg-clip-text text-transparent">
+              <div className="flex items-baseline gap-1.5">
+                <span className="font-extrabold text-base tracking-tight text-zinc-100">
                   TechNova
                 </span>
-                <span className="text-[10px] font-semibold text-slate-400 uppercase tracking-widest -mt-1">
-                  Finance OS
+                <span className="text-[10px] font-mono font-medium text-zinc-500 uppercase tracking-widest">
+                  OS
                 </span>
               </div>
             </div>
 
-            {/* Glowing Status Pill */}
-            <div className="hidden md:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-medium">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-              <ShieldCheck className="w-3.5 h-3.5" />
-              <span>100% Local & Private</span>
+            {/* Precision Status Badge */}
+            <div className="hidden md:flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[11px] font-mono">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              <ShieldCheck className="w-3 h-3" />
+              <span>100% Local</span>
             </div>
           </div>
 
           {/* Center Navigation Tabs (Desktop) */}
-          <nav className="hidden md:flex items-center gap-1 bg-slate-900/60 dark:bg-slate-900/60 light:bg-slate-100 p-1.5 rounded-2xl border border-slate-800/80 light:border-slate-200">
+          <nav className="hidden md:flex items-center gap-1 bg-zinc-950/80 dark:bg-zinc-950/80 light:bg-zinc-200/60 p-1 rounded-xl border border-zinc-800/80 light:border-zinc-300">
             {tabs.map((tab) => {
               const isActive = activeTab === tab.id;
               return (
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`relative flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold transition-all duration-200 ${
+                  className={`relative flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-medium transition-all duration-200 ${
                     isActive 
-                      ? 'text-white shadow-md' 
-                      : 'text-slate-400 hover:text-slate-200 light:text-slate-600 light:hover:text-slate-900'
+                      ? 'text-zinc-100 shadow-sm' 
+                      : 'text-zinc-400 hover:text-zinc-200'
                   }`}
                 >
                   {isActive && (
                     <motion.div
                       layoutId="activeTabGlow"
-                      className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-indigo-500 rounded-xl shadow-lg shadow-indigo-500/30"
-                      transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                      className="absolute inset-0 bg-zinc-800 dark:bg-zinc-800 light:bg-white rounded-lg border border-zinc-700/70 light:border-zinc-300 shadow-sm"
+                      transition={{ type: 'spring', stiffness: 500, damping: 35 }}
                     />
                   )}
-                  <span className="relative z-10 flex items-center gap-2">
+                  <span className="relative z-10 flex items-center gap-1.5">
                     {tab.icon}
-                    {tab.label}
+                    <span>{tab.label}</span>
                   </span>
                 </button>
               );
@@ -105,20 +104,20 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenExpenseModal, onOpenSubMod
           {/* Right Action Controls */}
           <div className="flex items-center gap-2">
             
-            {/* Quick Add Action Button */}
-            <div className="hidden sm:flex items-center gap-1.5">
+            {/* Action Buttons */}
+            <div className="hidden sm:flex items-center gap-2">
               <button
                 onClick={onOpenExpenseModal}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold shadow-md shadow-indigo-600/30 transition-all hover:scale-[1.02] active:scale-[0.98]"
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold shadow-sm transition-all border border-emerald-500/30"
               >
                 <Plus className="w-3.5 h-3.5" />
                 <span>Log Expense</span>
               </button>
               <button
                 onClick={onOpenSubModal}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 dark:bg-slate-800 dark:hover:bg-slate-700 light:bg-slate-200 light:hover:bg-slate-300 text-slate-200 light:text-slate-800 text-xs font-semibold border border-slate-700/50 transition-all"
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-800/90 hover:bg-zinc-700/80 text-zinc-200 text-xs font-medium border border-zinc-700/60 transition-all"
               >
-                <CreditCard className="w-3.5 h-3.5 text-indigo-400" />
+                <CreditCard className="w-3.5 h-3.5 text-zinc-400" />
                 <span>Add Sub</span>
               </button>
             </div>
@@ -127,11 +126,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenExpenseModal, onOpenSubMod
             <select
               value={data.currency}
               onChange={(e) => setCurrency(e.target.value as Currency)}
-              className="bg-slate-900/80 dark:bg-slate-900/80 light:bg-white text-slate-200 light:text-slate-800 border border-slate-700/60 light:border-slate-300 rounded-xl px-2.5 py-1.5 text-xs font-bold focus:outline-none focus:ring-2 focus:ring-indigo-500 cursor-pointer shadow-sm"
+              className="bg-zinc-900/90 dark:bg-zinc-900/90 light:bg-white text-zinc-200 light:text-zinc-900 border border-zinc-800 light:border-zinc-300 rounded-lg px-2.5 py-1 text-xs font-mono font-bold focus:outline-none focus:border-zinc-600 cursor-pointer shadow-sm"
               title="Quick Currency Switcher"
             >
               {(Object.keys(CURRENCY_CONFIG) as Currency[]).map((curr) => (
-                <option key={curr} value={curr} className="bg-slate-900 text-slate-100 dark:bg-slate-900 dark:text-slate-100 light:bg-white light:text-slate-900">
+                <option key={curr} value={curr} className="bg-zinc-900 text-zinc-100 dark:bg-zinc-900 light:bg-white light:text-zinc-900">
                   {CURRENCY_CONFIG[curr].label}
                 </option>
               ))}
@@ -140,26 +139,26 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenExpenseModal, onOpenSubMod
             {/* Theme Toggle */}
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-xl bg-slate-900/80 dark:bg-slate-900/80 light:bg-white text-slate-300 dark:text-slate-300 light:text-slate-700 border border-slate-700/60 light:border-slate-300 hover:text-indigo-400 transition-colors shadow-sm"
+              className="p-1.5 rounded-lg bg-zinc-900/90 dark:bg-zinc-900/90 light:bg-white text-zinc-400 hover:text-zinc-200 border border-zinc-800 light:border-zinc-300 transition-colors shadow-sm"
               title="Toggle Dark / Light Mode"
             >
-              {data.theme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+              {data.theme === 'dark' ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-zinc-700" />}
             </button>
 
             {/* Demo Data Button */}
             <button
               onClick={reloadDemoData}
-              className="hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-indigo-500/10 hover:bg-indigo-500/20 text-indigo-300 dark:text-indigo-300 light:text-indigo-700 border border-indigo-500/30 text-xs font-semibold transition-all"
-              title="Reload realistic 25+ demo expenses & subscriptions"
+              className="hidden lg:flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-zinc-800/60 hover:bg-zinc-800 text-zinc-300 border border-zinc-700/50 text-xs font-medium transition-all"
+              title="Reload realistic demo data"
             >
-              <Sparkles className="w-3.5 h-3.5 text-indigo-400 animate-spin-slow" />
+              <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
               <span>Demo Data</span>
             </button>
 
             {/* Export CSV */}
             <button
               onClick={exportData}
-              className="p-2 rounded-xl bg-slate-900/80 dark:bg-slate-900/80 light:bg-white text-slate-300 dark:text-slate-300 light:text-slate-700 border border-slate-700/60 light:border-slate-300 hover:text-emerald-400 transition-colors shadow-sm"
+              className="p-1.5 rounded-lg bg-zinc-900/90 dark:bg-zinc-900/90 light:bg-white text-zinc-400 hover:text-emerald-400 border border-zinc-800 light:border-zinc-300 transition-colors shadow-sm"
               title="Export Data as CSV"
             >
               <Download className="w-4 h-4" />
@@ -169,15 +168,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenExpenseModal, onOpenSubMod
             <div className="relative">
               <button
                 onClick={() => setShowConfirmReset(!showConfirmReset)}
-                className="p-2 rounded-xl bg-slate-900/80 dark:bg-slate-900/80 light:bg-white text-slate-300 dark:text-slate-300 light:text-slate-700 border border-slate-700/60 light:border-slate-300 hover:text-rose-400 transition-colors shadow-sm"
+                className="p-1.5 rounded-lg bg-zinc-900/90 dark:bg-zinc-900/90 light:bg-white text-zinc-400 hover:text-rose-400 border border-zinc-800 light:border-zinc-300 transition-colors shadow-sm"
                 title="Reset All Local Data"
               >
                 <RotateCcw className="w-4 h-4" />
               </button>
 
               {showConfirmReset && (
-                <div className="absolute right-0 mt-2 w-56 glass-panel rounded-2xl p-3 shadow-2xl border border-rose-500/30 z-50 animate-in fade-in zoom-in-95">
-                  <p className="text-xs font-semibold text-rose-300 dark:text-rose-300 light:text-rose-700 mb-2">
+                <div className="absolute right-0 mt-2 w-56 glass-panel rounded-xl p-3 shadow-2xl border border-rose-500/30 z-50">
+                  <p className="text-xs font-medium text-rose-300 mb-2">
                     Clear all local finance data?
                   </p>
                   <div className="flex gap-2">
@@ -186,13 +185,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenExpenseModal, onOpenSubMod
                         resetData();
                         setShowConfirmReset(false);
                       }}
-                      className="flex-1 py-1 px-2 rounded-lg bg-rose-600 hover:bg-rose-500 text-white text-xs font-bold transition-colors"
+                      className="flex-1 py-1 px-2 rounded-lg bg-rose-600 hover:bg-rose-500 text-white text-xs font-semibold transition-colors"
                     >
                       Confirm Clear
                     </button>
                     <button
                       onClick={() => setShowConfirmReset(false)}
-                      className="py-1 px-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-medium"
+                      className="py-1 px-2 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-300 text-xs font-medium"
                     >
                       Cancel
                     </button>

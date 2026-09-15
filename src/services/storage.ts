@@ -124,8 +124,24 @@ export const getStoredData = (): AppData => {
       saveStoredData(INITIAL_DEMO_DATA);
       return INITIAL_DEMO_DATA;
     }
-    const parsed = JSON.parse(raw) as AppData;
-    return parsed;
+    const parsed = JSON.parse(raw) as Partial<AppData>;
+    if (!parsed || typeof parsed !== 'object' || !Array.isArray(parsed.expenses) || !Array.isArray(parsed.subscriptions)) {
+      saveStoredData(INITIAL_DEMO_DATA);
+      return INITIAL_DEMO_DATA;
+    }
+    return {
+      currency: parsed.currency || 'USD',
+      theme: parsed.theme || 'dark',
+      budget: {
+        monthlyTarget: parsed.budget?.monthlyTarget ?? INITIAL_DEMO_DATA.budget.monthlyTarget,
+        categoryBudgets: {
+          ...INITIAL_DEMO_DATA.budget.categoryBudgets,
+          ...(parsed.budget?.categoryBudgets || {}),
+        },
+      },
+      subscriptions: Array.isArray(parsed.subscriptions) ? parsed.subscriptions : INITIAL_DEMO_DATA.subscriptions,
+      expenses: Array.isArray(parsed.expenses) ? parsed.expenses : INITIAL_DEMO_DATA.expenses,
+    };
   } catch (error) {
     console.error('Error reading localStorage:', error);
     return INITIAL_DEMO_DATA;
